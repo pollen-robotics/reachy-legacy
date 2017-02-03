@@ -1,0 +1,119 @@
+{
+  "controllers": {
+      "upper_arm_controller": {
+          "sync_read": true,
+          "attached_motors": [
+              "arm"
+          ],
+          "port": "/dev/ttySC0",
+          "syncloop": "BaseDxlController"
+      },
+      "lower_arm_controller": {
+          "sync_read": true,
+          "protocol": 2,
+          "attached_motors": [
+            "wrist"
+          ],
+          "port": "/dev/ttySC1",
+          "syncloop": "BaseDxlController"
+      }
+  },
+  "motorgroups": {
+      "arm": [
+          "shoulder_pitch",
+          "shoulder_roll",
+          "arm_yaw",
+          "elbow_pitch",
+          "forearm_yaw",
+          "finger_grip"
+      ],
+      "wrist": [
+          "wrist_pitch",
+          "wrist_roll"
+      ]
+  },
+  "motors": {
+      "shoulder_pitch": {
+        "offset": 0.0,
+        "type": "MX-106",
+        "id": 1,
+        "angle_limit": [
+          -90.0,
+          90.0
+        ],
+        "orientation": "direct"
+    },
+    "shoulder_roll": {
+      "offset": 0.0,
+      "type": "MX-64",
+      "id": 2,
+      "angle_limit": [
+        -90.0,
+        90.0
+      ],
+      "orientation": "direct"
+    },
+    "arm_yaw": {
+      "offset": 0.0,
+      "type": "MX-64",
+      "id": 3,
+      "angle_limit": [
+        -90.0,
+        90.0
+      ],
+      "orientation": "direct"
+    },
+    "elbow_pitch": {
+      "offset": 0.0,
+      "type": "MX-64",
+      "id": 4,
+      "angle_limit": [
+        -90.0,
+        90.0
+      ],
+      "orientation": "direct"
+    },
+    "forearm_yaw": {
+      "offset": 0.0,
+      "type": "AX-12",
+      "id": 5,
+      "angle_limit": [
+        -90.0,
+        90.0
+      ],
+      "orientation": "direct"
+    },
+    "finger_grip": {
+      "offset": 0.0,
+      "type": "AX-12",
+      "id": 6,
+      "angle_limit": [
+        -90.0,
+        90.0
+      ],
+      "orientation": "direct"
+    },
+    "wrist_pitch": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 7,
+      "angle_limit": [
+        -90.0,
+        90.0
+      ],
+      "orientation": "direct"
+    },
+    "wrist_roll": {
+      "offset": 0.0,
+      "type": "XL-320",
+      "id": 8,
+      "angle_limit": [
+        -90.0,
+        90.0
+      ],
+      "orientation": "direct"
+    }
+  },
+  "sensors": {
+  }
+}
