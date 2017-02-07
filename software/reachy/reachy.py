@@ -1,8 +1,8 @@
 from numpy import sum
 from functools import partial
 
+from pypot.creatures import AbstractPoppyCreature
 
-from poppy.creatures import AbstractPoppyCreature
 
 
 class Reachy(AbstractPoppyCreature):

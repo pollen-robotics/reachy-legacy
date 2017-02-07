@@ -19,7 +19,7 @@ setup(name='reachy',
       version=version(),
       packages=find_packages(),
 
-      install_requires=['pypot >= 2.11', 'poppy-creature >= 1.8'],
+      install_requires=['pypot'],
 
       include_package_data=True,
       exclude_package_data={'': ['README', '.gitignore']},
