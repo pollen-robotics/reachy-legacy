@@ -1,7 +1,7 @@
 {
   "controllers": {
       "upper_arm_controller": {
-          "sync_read": true,
+          "sync_read": false,
           "attached_motors": [
               "arm"
           ],
@@ -34,21 +34,21 @@
   },
   "motors": {
       "shoulder_pitch": {
-        "offset": 0.0,
+        "offset": -90.0,
         "type": "MX-106",
-        "id": 1,
+        "id": 10,
         "angle_limit": [
-          -90.0,
+          -180.0,
           90.0
         ],
         "orientation": "direct"
     },
     "shoulder_roll": {
-      "offset": 0.0,
+      "offset": -90.0,
       "type": "MX-64",
-      "id": 2,
+      "id": 11,
       "angle_limit": [
-        -90.0,
+        -100.0,
         90.0
       ],
       "orientation": "direct"
@@ -56,7 +56,7 @@
     "arm_yaw": {
       "offset": 0.0,
       "type": "MX-64",
-      "id": 3,
+      "id": 12,
       "angle_limit": [
         -90.0,
         90.0
@@ -66,50 +66,47 @@
     "elbow_pitch": {
       "offset": 0.0,
       "type": "MX-64",
-      "id": 4,
+      "id": 13,
       "angle_limit": [
-        -90.0,
-        90.0
+        0.0,
+        125.0
       ],
       "orientation": "direct"
     },
     "forearm_yaw": {
       "offset": 0.0,
       "type": "AX-12",
-      "id": 5,
+      "id": 14,
       "angle_limit": [
-        -90.0,
-        90.0
+        -150.0,
+        150.0
       ],
       "orientation": "direct"
     },
     "finger_grip": {
       "offset": 0.0,
       "type": "AX-12",
-      "id": 6,
-      "angle_limit": [
-        -90.0,
-        90.0
-      ],
+      "id": 15,
+      "wheel_mode": true,
       "orientation": "direct"
     },
     "wrist_pitch": {
       "offset": 0.0,
       "type": "XL-320",
-      "id": 7,
+      "id": 16,
       "angle_limit": [
-        -90.0,
-        90.0
+        -70.0,
+        70.0
       ],
       "orientation": "direct"
     },
     "wrist_roll": {
       "offset": 0.0,
       "type": "XL-320",
-      "id": 8,
+      "id": 17,
       "angle_limit": [
-        -90.0,
-        90.0
+        -60.0,
+        60.0
       ],
       "orientation": "direct"
     }
