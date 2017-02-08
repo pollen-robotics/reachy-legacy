@@ -3,6 +3,11 @@ from functools import partial
 
 from pypot.creatures import AbstractPoppyCreature
 
+from .primitives import (Grasp, Release,
+                         Record, Play,
+                         Handshake, Check,
+                         GotoRest, Idle,
+                         TurnCompliant)
 
 
 class Reachy(AbstractPoppyCreature):
@@ -16,3 +21,16 @@ class Reachy(AbstractPoppyCreature):
 
         robot.finger_grip.goal_position = 0
         robot.finger_grip.moving_speed = 0
+
+        # robot.attach_primitive(Grasp(robot), 'grasp')
+        # robot.attach_primitive(Release(robot), 'release')
+
+        robot.attach_primitive(TurnCompliant(robot), 'turn_compliant')
+        robot.attach_primitive(GotoRest(robot), 'goto_rest')
+        robot.attach_primitive(Idle(robot), 'idle')
+
+        robot.attach_primitive(Handshake(robot), 'handshake')
+        robot.attach_primitive(Check(robot), 'check')
+
+        robot.attach_primitive(Record(robot), 'record')
+        robot.attach_primitive(Play(robot), 'play')
