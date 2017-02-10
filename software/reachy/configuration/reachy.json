@@ -87,7 +87,10 @@
       "offset": 0.0,
       "type": "AX-12",
       "id": 15,
-      "wheel_mode": true,
+      "angle_limit": [
+          -125.0,
+          125.0
+      ],
       "orientation": "direct"
     },
     "wrist_pitch": {

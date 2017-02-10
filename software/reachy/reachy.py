@@ -16,11 +16,10 @@ class Reachy(AbstractPoppyCreature):
         robot._primitive_manager._filter = partial(sum, axis=0)
 
         robot.joint_motors = [m for m in robot.motors if m.name != 'finger_grip']
-        for m in robot.joint_motors:
+        for m in robot.motors:
             m.moving_speed = 50
 
-        robot.finger_grip.goal_position = 0
-        robot.finger_grip.moving_speed = 0
+        robot.finger_grip.goal_position = -100
 
         # robot.attach_primitive(Grasp(robot), 'grasp')
         # robot.attach_primitive(Release(robot), 'release')
