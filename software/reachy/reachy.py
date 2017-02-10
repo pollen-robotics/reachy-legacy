@@ -6,7 +6,7 @@ from pypot.creatures import AbstractPoppyCreature
 from .primitives import (Grasp, Release,
                          Record, Play,
                          Handshake, Check,
-                         GotoRest, Idle,
+                         GotoRest, Idle, TiringDemo,
                          TurnCompliant)
 
 
@@ -24,6 +24,7 @@ class Reachy(AbstractPoppyCreature):
         # robot.attach_primitive(Grasp(robot), 'grasp')
         # robot.attach_primitive(Release(robot), 'release')
 
+        robot.attach_primitive(TiringDemo(robot), 'tiring_demo')
         robot.attach_primitive(TurnCompliant(robot), 'turn_compliant')
         robot.attach_primitive(GotoRest(robot), 'goto_rest')
         robot.attach_primitive(Idle(robot), 'idle')

@@ -72,3 +72,30 @@ class Idle(LoopPrimitive):
         time.sleep(2)
         for m in self.robot.motors:
             m.compliant = True
+
+
+class TiringDemo(LoopPrimitive):
+    def __init__(self, robot):
+        LoopPrimitive.__init__(self, robot, 1)
+
+        self.freq = 0.1
+
+        self.sinus = [
+            Sinus(self.robot, 50, [self.robot.shoulder_pitch], amp=30, freq=self.freq, offset=15),
+            Sinus(self.robot, 50, [self.robot.shoulder_roll], amp=30, freq=self.freq, offset=30),
+            Sinus(self.robot, 50, [self.robot.elbow_pitch], amp=30, freq=self.freq, offset=30),
+            Sinus(self.robot, 50, [self.robot.arm_yaw], amp=30, freq=self.freq, offset=40),
+        ]
+
+        self.c = self.robot._robot._controllers[0].controllers[1]
+
+    def setup(self):
+        for s in self.sinus:
+            s.start()
+
+    def update(self):
+        pass
+
+    def teardown(self):
+        for s in self.sinus:
+            s.stop()
