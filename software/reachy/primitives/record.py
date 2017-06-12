@@ -43,19 +43,19 @@ class Play(Primitive):
     def setup(self):
         for m in self.robot.joint_motors:
             m.compliant = False
-            m.moving_speed = 50
+            m.moving_speed = 0
 
     def run(self):
         with open(self.path.format(self.record_name)) as f:
             move = Move.load(f)
 
-        self.player = MovePlayer(self.robot, move)
+        self.player = MovePlayer(self.robot, move, max_start_speed=0)
         self.player.start()
         self.player.wait_to_stop()
 
     def teardown(self):
         for m in self.robot.joint_motors:
-            m.moving_speed = 50
+            m.moving_speed = 0
 
     @property
     def moves(self):
