@@ -32,3 +32,5 @@ Once the robot is started, you can connect to its web interface. You can directl
 
  * You can find more information on the documentation of the poppy project: https://docs.poppy-project.org/
   Most code should also work for the Reachy robot.
+  
+  * If needed you can remotely connect to the raspberry pi and access all embedded software. You can login using ssh (login: poppy & password: poppy)
