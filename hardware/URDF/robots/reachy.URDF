@@ -106,7 +106,8 @@
     <parent link="base"/>
     <child link="shoulder"/>
     <origin rpy="0 0 0" xyz="0.0887 0 0"/>
-    <axis xyz="0 0 1"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-1.5708" upper="3.14159"/>
   </joint>
 
   <joint name="shoulder_roll" type="revolute">
@@ -114,6 +115,7 @@
     <child link="shoulder_to_arm"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 1 0"/>
+    <limit lower="-3.14159" upper="0.174533"/>
   </joint>
 
   <joint name="arm_yaw" type="revolute">
@@ -121,6 +123,7 @@
     <child link="upper_arm"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 0 -1"/>
+    <limit lower="-1.5708" upper="1.5708"/>
   </joint>
 
   <joint name="elbow_pitch" type="revolute">
@@ -128,6 +131,7 @@
     <child link="forearm"/>
     <origin rpy="0 0 0" xyz="0 0 -0.30745"/>
     <axis xyz="1 0 0"/>
+    <limit lower="0" upper="2.18166"/>
   </joint>
 
   <joint name="forearm_yaw" type="revolute">
@@ -135,6 +139,7 @@
     <child link="wrist"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 0 -1"/>
+    <limit lower="-2.61799" upper="2.61799"/>
   </joint>
 
   <joint name="wrist_pitch" type="revolute">
@@ -142,6 +147,7 @@
     <child link="wrist_hand"/>
     <origin rpy="0 0 0" xyz="0 0 -0.22415"/>
     <axis xyz="1 0 0"/>
+    <limit lower="-1.22173" upper="1.22173"/>
   </joint>
 
   <joint name="wrist_roll" type="revolute">
@@ -149,6 +155,7 @@
     <child link="hand_ball"/>
     <origin rpy="0 0 0" xyz="0 0 -0.03243"/>
     <axis xyz="0 1 0"/>
+    <limit lower="-1.0472" upper="1.0472"/>
   </joint>
 
 </robot>
