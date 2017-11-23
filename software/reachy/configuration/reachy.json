@@ -44,14 +44,14 @@
         "orientation": "direct"
     },
     "shoulder_roll": {
-      "offset": -90.0,
+      "offset": 90.0,
       "type": "MX-64",
       "id": 11,
       "angle_limit": [
         -100.0,
         90.0
       ],
-      "orientation": "direct"
+      "orientation": "indirect"
     },
     "arm_yaw": {
       "offset": 0.0,
