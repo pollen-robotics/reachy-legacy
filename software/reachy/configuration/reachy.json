@@ -1,21 +1,13 @@
 {
   "controllers": {
       "upper_arm_controller": {
-          "sync_read": false,
+          "sync_read": true,
           "attached_motors": [
               "arm"
           ],
-          "port": "/dev/ttySC0",
+          "port": "/dev/ttyACM0",
           "syncloop": "BaseDxlController"
-      },
-      "lower_arm_controller": {
-          "sync_read": true,
-          "protocol": 2,
-          "attached_motors": [
-            "wrist"
-          ],
-          "port": "/dev/ttySC1",
-          "syncloop": "BaseDxlController"
+
       }
   },
   "motorgroups": {
@@ -25,9 +17,6 @@
           "arm_yaw",
           "elbow_pitch",
           "forearm_yaw",
-          "finger_grip"
-      ],
-      "wrist": [
           "wrist_pitch",
           "wrist_roll"
       ]
@@ -42,77 +31,67 @@
           90.0
         ],
         "orientation": "direct"
-    },
-    "shoulder_roll": {
-      "offset": 90.0,
-      "type": "MX-64",
-      "id": 11,
-      "angle_limit": [
-        -100.0,
-        90.0
-      ],
-      "orientation": "indirect"
-    },
-    "arm_yaw": {
-      "offset": 0.0,
-      "type": "MX-64",
-      "id": 12,
-      "angle_limit": [
-        -90.0,
-        90.0
-      ],
-      "orientation": "direct"
-    },
-    "elbow_pitch": {
-      "offset": 0.0,
-      "type": "MX-64",
-      "id": 13,
-      "angle_limit": [
-        0.0,
-        125.0
-      ],
-      "orientation": "direct"
-    },
-    "forearm_yaw": {
-      "offset": 0.0,
-      "type": "AX-12",
-      "id": 14,
-      "angle_limit": [
-        -150.0,
-        150.0
-      ],
-      "orientation": "direct"
-    },
-    "finger_grip": {
-      "offset": 0.0,
-      "type": "AX-12",
-      "id": 15,
-      "angle_limit": [
-          -125.0,
+      },
+      "shoulder_roll": {
+        "offset": -90.0,
+        "type": "MX-64",
+        "id": 11,
+        "angle_limit": [
+          -100.0,
+          90.0
+        ],
+        "orientation": "direct"
+      },
+      "arm_yaw": {
+        "offset": 0.0,
+        "type": "MX-64",
+        "id": 12,
+        "angle_limit": [
+          -90.0,
+          90.0
+        ],
+        "orientation": "direct"
+      },
+      "elbow_pitch": {
+        "offset": 0.0,
+        "type": "MX-64",
+        "id": 13,
+        "angle_limit": [
+          0.0,
           125.0
-      ],
-      "orientation": "direct"
-    },
-    "wrist_pitch": {
-      "offset": 0.0,
-      "type": "XL-320",
-      "id": 16,
-      "angle_limit": [
-        -70.0,
-        70.0
-      ],
-      "orientation": "direct"
-    },
-    "wrist_roll": {
-      "offset": 0.0,
-      "type": "XL-320",
-      "id": 17,
-      "angle_limit": [
-        -60.0,
-        60.0
-      ],
-      "orientation": "direct"
-    }
+        ],
+        "orientation": "direct"
+      },
+      "forearm_yaw": {
+        "offset": 0.0,
+        "type": "AX-12",
+        "id": 14,
+        "angle_limit": [
+          -150.0,
+          150.0
+        ],
+        "orientation": "direct"
+      },
+      "wrist_pitch": {
+        "offset": 0.0,
+        "type": "AX-12",
+        "id": 15,
+        "angle_limit": [
+          -70.0,
+          70.0
+        ],
+        "orientation": "direct"
+      },
+      "wrist_roll": {
+        "offset": 0.0,
+        "type": "AX-12",
+        "id": 16,
+        "angle_limit": [
+          -45.0,
+          45.0
+        ],
+        "orientation": "direct"
+      }
   },
   "sensors": {
   }
