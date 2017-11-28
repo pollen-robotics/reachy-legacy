@@ -23,24 +23,24 @@
   },
   "motors": {
       "shoulder_pitch": {
-        "offset": -90.0,
+        "offset": 90.0,
         "type": "MX-106",
         "id": 10,
         "angle_limit": [
           -180.0,
           90.0
         ],
-        "orientation": "direct"
+        "orientation": "indirect"
       },
       "shoulder_roll": {
-        "offset": -90.0,
+        "offset": 90.0,
         "type": "MX-64",
         "id": 11,
         "angle_limit": [
           -100.0,
           90.0
         ],
-        "orientation": "direct"
+        "orientation": "indirect"
       },
       "arm_yaw": {
         "offset": 0.0,
@@ -50,7 +50,7 @@
           -90.0,
           90.0
         ],
-        "orientation": "direct"
+        "orientation": "indirect"
       },
       "elbow_pitch": {
         "offset": 0.0,
@@ -60,7 +60,7 @@
           0.0,
           125.0
         ],
-        "orientation": "direct"
+        "orientation": "indirect"
       },
       "forearm_yaw": {
         "offset": 0.0,
@@ -70,17 +70,17 @@
           -150.0,
           150.0
         ],
-        "orientation": "direct"
+        "orientation": "indirect"
       },
       "wrist_pitch": {
         "offset": 0.0,
         "type": "AX-12",
         "id": 15,
         "angle_limit": [
-          -70.0,
-          70.0
+          -50.0,
+          50.0
         ],
-        "orientation": "direct"
+        "orientation": "indirect"
       },
       "wrist_roll": {
         "offset": 0.0,
@@ -90,7 +90,7 @@
           -45.0,
           45.0
         ],
-        "orientation": "direct"
+        "orientation": "indirect"
       }
   },
   "sensors": {
