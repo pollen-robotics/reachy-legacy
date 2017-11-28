@@ -105,8 +105,8 @@
   <joint name="shoulder_pitch" type="revolute">
     <parent link="base"/>
     <child link="shoulder"/>
-    <origin rpy="0 0 0" xyz="0.0887 0 0"/>
-    <axis xyz="1 0 0"/>
+    <origin rpy="0 0 0" xyz="0 -0.0887 0"/>
+    <axis xyz="0 1 0"/>
     <limit lower="-1.5708" upper="3.14159"/>
   </joint>
 
@@ -114,7 +114,7 @@
     <parent link="shoulder"/>
     <child link="shoulder_to_arm"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="1 0 0"/>
     <limit lower="-3.14159" upper="0.174533"/>
   </joint>
 
@@ -122,7 +122,7 @@
     <parent link="shoulder_to_arm"/>
     <child link="upper_arm"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <axis xyz="0 0 -1"/>
+    <axis xyz="0 0 1"/>
     <limit lower="-1.5708" upper="1.5708"/>
   </joint>
 
@@ -130,15 +130,15 @@
     <parent link="upper_arm"/>
     <child link="forearm"/>
     <origin rpy="0 0 0" xyz="0 0 -0.30745"/>
-    <axis xyz="1 0 0"/>
-    <limit lower="0" upper="2.18166"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.18166" upper="0"/>
   </joint>
 
   <joint name="forearm_yaw" type="revolute">
     <parent link="forearm"/>
     <child link="wrist"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <axis xyz="0 0 -1"/>
+    <axis xyz="0 0 1"/>
     <limit lower="-2.61799" upper="2.61799"/>
   </joint>
 
@@ -146,7 +146,7 @@
     <parent link="wrist"/>
     <child link="wrist_hand"/>
     <origin rpy="0 0 0" xyz="0 0 -0.22415"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="0 1 0"/>
     <limit lower="-1.22173" upper="1.22173"/>
   </joint>
 
@@ -154,7 +154,7 @@
     <parent link="wrist_hand"/>
     <child link="hand_ball"/>
     <origin rpy="0 0 0" xyz="0 0 -0.03243"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="1 0 0"/>
     <limit lower="-1.0472" upper="1.0472"/>
   </joint>
 
