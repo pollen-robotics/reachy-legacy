@@ -13,22 +13,22 @@ class GotoRest(Primitive):
         self.speed = 25
 
     def run(self):
-        for m in self.robot.joint_motors:
+        for m in self.robot.motors:
             m.compliant = False
             m.moving_speed = self.speed
             m.goal_position = 0
 
-        target = numpy.array([0 for m in self.robot.joint_motors])
+        target = numpy.array([0 for m in self.robot.motors])
 
         while True:
-            current = numpy.array([m.present_position for m in self.robot.joint_motors])
+            current = numpy.array([m.present_position for m in self.robot.motors])
 
             if numpy.linalg.norm(target - current) < 10:
                 break
 
             time.sleep(0.25)
 
-        for m in self.robot.joint_motors:
+        for m in self.robot.motors:
             m.compliant = True
 
 
@@ -37,18 +37,15 @@ class Idle(LoopPrimitive):
         LoopPrimitive.__init__(self, robot, 1.0)
 
     def setup(self):
-        for m in self.robot.joint_motors:
+        for m in self.robot.motors:
             m.compliant = False
 
-        pos = {m.name: 0 for m in self.robot.joint_motors}
+        pos = {m.name: 0 for m in self.robot.motors}
         pos['elbow_pitch'] = 30
         self.robot.goto_position(pos, 2.0, wait=True)
 
-        for m in self.robot.joint_motors:
+        for m in self.robot.motors:
             m.moving_speed = 50.0
-
-        for m in [self.robot.wrist_pitch, self.robot.wrist_roll]:
-            m.compliant = True
 
         self.sinus = [
             Sinus(self.robot, 50.0, [self.robot.elbow_pitch], amp=15, freq=0.25, offset=30),

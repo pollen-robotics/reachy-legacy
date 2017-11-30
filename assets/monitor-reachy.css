@@ -1,0 +1,215 @@
+body{
+  font-size:9pt;
+}
+sub small, small sub,sup small, small sup{
+  font-size:6pt;
+}
+ul.motors{
+  margin:0px;
+  padding:0px;
+  position:relative;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+li.motor{
+  display:inline-block;
+  list-style-type:none;
+  margin:2px;
+  border-radius:5px;
+  padding:0px;
+  position:absolute;
+  width:110px;
+  overflow:hidden;
+  background-color:rgba(255,255,255,0.8);
+  box-shadow:0.5px 0.5px 4px rgba(0,0,0,0.6);
+  border:solid 1px #AAA;
+
+
+}
+
+li.motor .name{
+  background-color:rgba(200,200,200,0.8);
+  font-size:1.1em;
+  font-weight:bold;
+  padding:2px 5px;
+  white-space:nowrap
+
+}
+li.motor.hot .name{
+  background-color:#FCF8E3;
+}
+li.motor.ardent .name{
+  background-color:#F2DEDE;
+}
+
+li.motor.ardent {
+  border: 1px solid #D11919;
+  border-radius: 6px;
+
+  -webkit-animation-name: glow;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 500ms;
+
+
+  -moz-animation-name: glow;
+  -moz-animation-timing-function: ease-in;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
+  -moz-animation-duration: 500ms;
+}
+@-webkit-keyframes glow {
+  0% { box-shadow: 0 0 5px #600 ; }
+  100% { box-shadow: 0 0 25px #600 ; }
+}
+@-moz-keyframes glow {
+  0% { box-shadow: 0 0 5px #600 ; }
+  100% { box-shadow: 0 0 25px #600 ; }
+}
+
+li.motor .detail    {
+  padding:5px 5px 0px 5px;
+}
+
+li.motor .more{
+  max-height:0;
+  transition:max-height 0.2s ease;
+}
+
+li.motor:hover{
+  z-index:100;
+}
+
+li.motor:hover .more{
+  max-height:150px;
+}
+
+div.angle{
+  width:32px;
+  height:32px;
+  position:absolute;
+  top:25px;
+  right:5px;
+  background-size:cover;
+  -webkit-transition: transform 0.2s;
+  -moz-transition: transform 0.2s;
+  -ms-transition: transform 0.2s;
+  -o-transition: transform 0.2s;
+  transition: transform 0.2s;
+
+  transform:rotate(-90deg);
+  -moz-transform:rotate(-90deg);
+  -webkit-transform:rotate(-90deg);
+}
+
+/*      div.angle:hover{
+transform:scale(3) rotate(-90deg) translate(-10px,-10px);
+-moz-transform:scale(3) rotate(-90deg) translate(-10px,-10px);
+-webkit-transform:scale(3) rotate(-90deg) translate(-10px,-10px);
+} */
+
+.temperature{
+  color: #3C763D;
+}
+.temperature.hot{
+  color: #8A6D3B;
+}
+.temperature.ardent{
+  color: #A94442;
+}
+.blink {
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+
+  -moz-animation-name: blinker;
+  -moz-animation-duration: 0.5s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+
+  animation-name: blinker;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@-moz-keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+
+.poppy_picture{
+  width:600px;
+  height:650px;
+  background-color: transparent;
+  background-image: url(../img/reachy-motorbox-links.svg), url(../img/reachy.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.panel.primitive{
+  margin-bottom:5px;
+}
+.panel.primitive .panel-heading{
+  padding:2px 3px;
+}
+
+li.motor.ardent {
+  border: 1px solid #D11919;
+  border-radius: 6px;
+
+  -webkit-animation-name: glow;
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 500ms;
+
+
+  -moz-animation-name: glow;
+  -moz-animation-timing-function: ease-in;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-direction: alternate;
+  -moz-animation-duration: 500ms;
+}
+@-webkit-keyframes glow {
+  0% { box-shadow: 0 0 5px #600 ; }
+  100% { box-shadow: 0 0 15px #600 ; }
+}
+@-moz-keyframes glow {
+  0% { box-shadow: 0 0 5px #600 ; }
+  100% { box-shadow: 0 0 15px #600 ; }
+}
+
+
+#motor_shoulder_pitch{top:0px; left:430px;}
+#motor_shoulder_roll{top:20px; left:95px;}
+
+#motor_arm_yaw{top:165px; left:380px;}
+#motor_elbow_pitch{top:280px; left:50px;}
+#motor_forearm_yaw{top:360px; left:365px;}
+#motor_finger_grip{top:370px; left:300px;}
+
+#motor_wrist_pitch{top:480px; left:405px;}
+#motor_wrist_roll{top:565px; left:145px;}

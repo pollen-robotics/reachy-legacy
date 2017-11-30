@@ -22,8 +22,8 @@ class TurnCompliant(LoopPrimitive):
         mt = mean(self.torque)
 
         if mt >= 10:
-            for m in self.robot.joint_motors:
+            for m in self.robot.motors:
                 m.compliant = True
         elif mt < 4:
-            for m in self.robot.joint_motors:
+            for m in self.robot.motors:
                 m.compliant = False

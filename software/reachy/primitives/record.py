@@ -13,10 +13,10 @@ class Record(LoopPrimitive):
         self.record_name = "demo_example"
 
     def setup(self):
-        for m in self.robot.joint_motors:
+        for m in self.robot.motors:
             m.compliant = True
 
-        self.recorder = MoveRecorder(self.robot, 50.0, self.robot.joint_motors)
+        self.recorder = MoveRecorder(self.robot, 50.0, self.robot.motors)
         self.recorder.start()
 
     def update(self):
@@ -25,7 +25,7 @@ class Record(LoopPrimitive):
     def teardown(self):
         self.recorder.stop()
 
-        for m in self.robot.joint_motors:
+        for m in self.robot.motors:
             m.compliant = False
 
         with open(self.path.format(self.record_name), 'w') as f:
@@ -41,7 +41,7 @@ class Play(Primitive):
         self.record_name = "demo_example"
 
     def setup(self):
-        for m in self.robot.joint_motors:
+        for m in self.robot.motors:
             m.compliant = False
             m.moving_speed = 0
 
@@ -54,7 +54,7 @@ class Play(Primitive):
         self.player.wait_to_stop()
 
     def teardown(self):
-        for m in self.robot.joint_motors:
+        for m in self.robot.motors:
             m.moving_speed = 0
 
     @property
