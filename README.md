@@ -1,6 +1,6 @@
 # Reachy
 
-Reachy is a 7 dof human like arm designed by Pollen Robotics. Leanr more about [Reachy](https://www.pollen-robotics.com/reachy/).
+Reachy is a 7 dof human like arm designed by Pollen Robotics. Learn more about [Reachy](https://www.pollen-robotics.com/reachy/).
 
 If you want to own a Reachy, we can [build it for you](https://www.pollen-robotics.com/reachy/).
 
