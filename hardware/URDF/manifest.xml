@@ -1,0 +1,7 @@
+<package>
+  <description brief="Reachy">Reachy</description>
+  <depend package="gazebo" />
+  <author>Matthieu Lapeyre, Pollen Robotics</author>
+  <url>www.pollen-robotics.com</url>
+  <license> CC-BY-SA </license>
+</package>
