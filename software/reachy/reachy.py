@@ -38,4 +38,7 @@ def Leachy(*args, **kwargs):
     config = os.path.join(os.path.dirname(__file__),
                           'configuration', 'leachy.json')
 
-    return Reachy(config=config, *args, **kwargs)
+    robot = Reachy(config=config, *args, **kwargs)
+    robot.urdf_file = robot.urdf_file.replace('reachy.urdf', 'leachy.urdf')
+    robot.ik_chain = IkChain(robot, tip=[0, 0, -0.8])
+    return robot
