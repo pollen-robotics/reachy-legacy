@@ -26,6 +26,10 @@ class Reachy(AbstractPoppyCreature):
         robot.attach_primitive(Record(robot), 'record')
         robot.attach_primitive(Play(robot), 'play')
 
+        if robot.simulated:
+            vrep_io = robot._controllers[0].io
+            robot.is_colliding = lambda: vrep_io.get_collision_state('Collision')
+
 
 def Leachy(*args, **kwargs):
     config = os.path.join(os.path.dirname(__file__),
