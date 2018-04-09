@@ -16,5 +16,8 @@ class IkChain(object):
     def forward_kinematics(self, joints):
         return self._chain.forward_kinematics([0] + list(joints) + [0])
 
-    def inverse_kinematics(self, target, initial_position=None):
-        return self._chain.inverse_kinematics(target, initial_position)[1:-1]
+    def inverse_kinematics(self, target, initial_position=None, accurate=False):
+        opt = {}
+        if not accurate:
+            opt['max_iter'] = 3
+        return self._chain.inverse_kinematics(target, initial_position, **opt)[1:-1]
