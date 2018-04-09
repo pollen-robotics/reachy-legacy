@@ -8,6 +8,7 @@ from pypot.creatures import AbstractPoppyCreature
 from .primitives import (Record, Play,
                          GotoRest, Idle, TiringDemo,
                          TurnCompliant)
+from .ik import IkChain
 
 
 class Reachy(AbstractPoppyCreature):
@@ -29,6 +30,8 @@ class Reachy(AbstractPoppyCreature):
         if robot.simulated:
             vrep_io = robot._controllers[0].io
             robot.is_colliding = lambda: vrep_io.get_collision_state('Collision')
+
+        robot.ik_chain = IkChain(robot, tip=[0, 0, -0.02409])
 
 
 def Leachy(*args, **kwargs):
