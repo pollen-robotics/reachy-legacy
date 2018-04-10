@@ -1,4 +1,5 @@
 import os
+import json
 import time
 
 from numpy import sum
@@ -69,6 +70,12 @@ def Leachy(*args, **kwargs):
             robot = from_vrep(config, '127.0.0.1', 19997, scene)
         except VrepConnectionError:
             raise IOError('Connection to V-REP failed!')
+
+        robot.simulated = True
+        with open(config) as f:
+            robot.config = json.load(f)
+        urdf_file = os.path.join(os.path.dirname(__file__), 'leachy.urdf')
+        robot.urdf_file = urdf_file
 
     robot.urdf_file = robot.urdf_file.replace('reachy.urdf', 'leachy.urdf')
     robot.ik_chain = IkChain(robot, tip=[0, 0, -0.8])
