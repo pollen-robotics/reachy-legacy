@@ -7,6 +7,7 @@ from functools import partial
 from collections import deque
 
 from pypot.creatures import AbstractPoppyCreature
+from pypot.vrep import from_vrep, VrepConnectionError
 
 from .primitives import (Record, Play,
                          GotoRest, Idle, TiringDemo,
@@ -53,10 +54,22 @@ class Reachy(AbstractPoppyCreature):
 
 
 def Leachy(*args, **kwargs):
-    config = os.path.join(os.path.dirname(__file__),
-                          'configuration', 'leachy.json')
+    if 'config' not in kwargs and 'simulator' not in kwargs:
+        config = os.path.join(os.path.dirname(__file__),
+                              'configuration', 'leachy.json')
+        kwargs['config'] = config
+        robot = Reachy(*args, **kwargs)
 
-    robot = Reachy(config=config, *args, **kwargs)
+    if 'simulator' in kwargs:
+        config = os.path.join(os.path.dirname(__file__),
+                              'configuration', 'leachy.json')
+        scene = os.path.join(os.path.dirname(__file__),
+                             'vrep-scene', 'leachy.ttt')
+        try:
+            robot = from_vrep(config, '127.0.0.1', 19997, scene)
+        except VrepConnectionError:
+            raise IOError('Connection to V-REP failed!')
+
     robot.urdf_file = robot.urdf_file.replace('reachy.urdf', 'leachy.urdf')
     robot.ik_chain = IkChain(robot, tip=[0, 0, -0.8])
     return robot
