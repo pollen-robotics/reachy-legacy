@@ -82,5 +82,5 @@ def Leachy(*args, **kwargs):
         setup(robot)
 
     robot.urdf_file = robot.urdf_file.replace('reachy.urdf', 'leachy.urdf')
-    robot.ik_chain = IkChain(robot, tip=[0, 0, -0.8])
+    robot.ik_chain = IkChain(robot, tip=[0, 0, -0.02409])
     return robot
