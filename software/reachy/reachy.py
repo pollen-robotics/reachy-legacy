@@ -1,7 +1,10 @@
 import os
+import time
 
 from numpy import sum
+from threading import Thread
 from functools import partial
+from collections import deque
 
 from pypot.creatures import AbstractPoppyCreature
 
@@ -30,6 +33,21 @@ class Reachy(AbstractPoppyCreature):
         if robot.simulated:
             vrep_io = robot._controllers[0].io
             robot.is_colliding = lambda: vrep_io.get_collision_state('Collision')
+
+            robot.last_collision = None
+            robot.recent_collisions = deque([], 10)
+
+            def did_collide():
+                while True:
+                    if robot.is_colliding:
+                        t = time.time()
+                        robot.last_collision = t
+                        robot.recent_collisions.append(t)
+                    time.sleep(0.02)
+
+            t = Thread(target=did_collide)
+            t.daemon = True
+            t.start()
 
         robot.ik_chain = IkChain(robot, tip=[0, 0, -0.02409])
 
