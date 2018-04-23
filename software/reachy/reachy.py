@@ -7,6 +7,7 @@ from threading import Thread
 from functools import partial
 from collections import deque
 
+from pypot.utils import pypot_time
 from pypot.creatures import AbstractPoppyCreature
 from pypot.vrep import from_vrep, VrepConnectionError
 
@@ -39,8 +40,8 @@ def setup(robot):
 
         def did_collide():
             while True:
-                if robot.is_colliding:
-                    t = time.time()
+                if robot.is_colliding():
+                    t = pypot_time.time()
                     robot.last_collision = t
                     robot.recent_collisions.append(t)
                 time.sleep(0.02)
