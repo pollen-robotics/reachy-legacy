@@ -76,11 +76,15 @@ def Leachy(*args, **kwargs):
 
         if 'scene' not in kwargs:
             kwargs['scene'] = 'leachy.ttt'
-        scene = os.path.join(os.path.dirname(__file__),
-                             'vrep-scene', kwargs['scene'])
+        if kwargs['scene'] == 'keep-existing':
+            scene = None
+        else:
+            scene = os.path.join(os.path.dirname(__file__),
+                                 'vrep-scene', kwargs['scene'])
 
         try:
-            robot = from_vrep(config, '127.0.0.1', 19997, scene)
+            shared_vrep_io = kwargs['shared_vrep_io'] if 'shared_vrep_io' in kwargs else None
+            robot = from_vrep(config, '127.0.0.1', 19997, scene, shared_vrep_io=shared_vrep_io)
         except VrepConnectionError:
             raise IOError('Connection to V-REP failed!')
 
