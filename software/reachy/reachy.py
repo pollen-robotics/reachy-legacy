@@ -23,6 +23,11 @@ def setup(robot):
     for m in robot.motors:
         m.moving_speed = 50
 
+    for m in robot.motors:
+        # make alias without the r_ or l_ prefix in motor name
+        name = m.name[2:]
+        setattr(robot, name, m)
+
     robot.attach_primitive(TiringDemo(robot), 'tiring_demo')
     robot.attach_primitive(TurnCompliant(robot), 'turn_compliant')
     robot.attach_primitive(GotoRest(robot), 'goto_rest')
