@@ -73,8 +73,12 @@ def Leachy(*args, **kwargs):
     if 'simulator' in kwargs:
         config = os.path.join(os.path.dirname(__file__),
                               'configuration', 'leachy.json')
+
+        if 'scene' not in kwargs:
+            kwargs['scene'] = 'leachy.ttt'
         scene = os.path.join(os.path.dirname(__file__),
-                             'vrep-scene', 'leachy.ttt')
+                             'vrep-scene', kwargs['scene'])
+
         try:
             robot = from_vrep(config, '127.0.0.1', 19997, scene)
         except VrepConnectionError:
