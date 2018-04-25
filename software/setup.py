@@ -19,7 +19,7 @@ setup(name='reachy',
       version=version(),
       packages=find_packages(),
 
-      install_requires=['pypot'],
+      install_requires=['pypot>=3.1.0'],
 
       include_package_data=True,
       exclude_package_data={'': ['README', '.gitignore']},
