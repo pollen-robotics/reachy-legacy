@@ -83,8 +83,9 @@ def Leachy(*args, **kwargs):
                                  'vrep-scene', kwargs['scene'])
 
         try:
+            id = kwargs['id'] if 'id' in kwargs else None
             shared_vrep_io = kwargs['shared_vrep_io'] if 'shared_vrep_io' in kwargs else None
-            robot = from_vrep(config, '127.0.0.1', 19997, scene, shared_vrep_io=shared_vrep_io)
+            robot = from_vrep(config, '127.0.0.1', 19997, scene, shared_vrep_io=shared_vrep_io, id=id)
         except VrepConnectionError:
             raise IOError('Connection to V-REP failed!')
 
