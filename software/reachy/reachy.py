@@ -23,6 +23,11 @@ def setup(robot):
     for m in robot.motors:
         m.moving_speed = 50
 
+    for m in robot.motors:
+        # make alias without the r_ or l_ prefix in motor name
+        name = m.name[2:]
+        setattr(robot, name, m)
+
     robot.attach_primitive(TiringDemo(robot), 'tiring_demo')
     robot.attach_primitive(TurnCompliant(robot), 'turn_compliant')
     robot.attach_primitive(GotoRest(robot), 'goto_rest')
@@ -68,10 +73,19 @@ def Leachy(*args, **kwargs):
     if 'simulator' in kwargs:
         config = os.path.join(os.path.dirname(__file__),
                               'configuration', 'leachy.json')
-        scene = os.path.join(os.path.dirname(__file__),
-                             'vrep-scene', 'leachy.ttt')
+
+        if 'scene' not in kwargs:
+            kwargs['scene'] = 'leachy.ttt'
+        if kwargs['scene'] == 'keep-existing':
+            scene = None
+        else:
+            scene = os.path.join(os.path.dirname(__file__),
+                                 'vrep-scene', kwargs['scene'])
+
         try:
-            robot = from_vrep(config, '127.0.0.1', 19997, scene)
+            id = kwargs['id'] if 'id' in kwargs else None
+            shared_vrep_io = kwargs['shared_vrep_io'] if 'shared_vrep_io' in kwargs else None
+            robot = from_vrep(config, '127.0.0.1', 19997, scene, shared_vrep_io=shared_vrep_io, id=id)
         except VrepConnectionError:
             raise IOError('Connection to V-REP failed!')
 

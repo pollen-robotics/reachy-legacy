@@ -12,17 +12,17 @@
   },
   "motorgroups": {
       "arm": [
-          "shoulder_pitch",
-          "shoulder_roll",
-          "arm_yaw",
-          "elbow_pitch",
-          "forearm_yaw",
-          "wrist_pitch",
-          "wrist_roll"
+          "l_shoulder_pitch",
+          "l_shoulder_roll",
+          "l_arm_yaw",
+          "l_elbow_pitch",
+          "l_forearm_yaw",
+          "l_wrist_pitch",
+          "l_wrist_roll"
       ]
   },
   "motors": {
-      "shoulder_pitch": {
+      "l_shoulder_pitch": {
         "offset": 90.0,
         "type": "MX-106",
         "id": 20,
@@ -32,7 +32,7 @@
         ],
         "orientation": "direct"
       },
-      "shoulder_roll": {
+      "l_shoulder_roll": {
         "offset": -90.0,
         "type": "MX-64",
         "id": 21,
@@ -42,7 +42,7 @@
         ],
         "orientation": "indirect"
       },
-      "arm_yaw": {
+      "l_arm_yaw": {
         "offset": 0.0,
         "type": "MX-64",
         "id": 22,
@@ -52,7 +52,7 @@
         ],
         "orientation": "indirect"
       },
-      "elbow_pitch": {
+      "l_elbow_pitch": {
         "offset": 0.0,
         "type": "MX-64",
         "id": 23,
@@ -62,7 +62,7 @@
         ],
         "orientation": "direct"
       },
-      "forearm_yaw": {
+      "l_forearm_yaw": {
         "offset": 0.0,
         "type": "AX-12",
         "id": 24,
@@ -72,7 +72,7 @@
         ],
         "orientation": "indirect"
       },
-      "wrist_pitch": {
+      "l_wrist_pitch": {
         "offset": 0.0,
         "type": "AX-12",
         "id": 25,
@@ -82,7 +82,7 @@
         ],
         "orientation": "direct"
       },
-      "wrist_roll": {
+      "l_wrist_roll": {
         "offset": 0.0,
         "type": "AX-12",
         "id": 26,
