@@ -8,6 +8,8 @@ def multi_robot_from_vrep(scene, robots):
     if len(robots) == 1:
         return from_vrep(scene, robots[0])
 
+    robots = list(robots)
+
     first = from_vrep(scene, robots.pop(0))
     vrep_io = first._controllers[0].io
 
