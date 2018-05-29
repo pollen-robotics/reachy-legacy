@@ -60,7 +60,8 @@ class Reachy(AbstractPoppyCreature):
     @classmethod
     def setup(cls, robot):
         setup(robot)
-        robot.ik_chain = IkChain(robot, tip=[0, 0, -0.02409])
+        if robot.motors[0].name.startswith('r'):
+            robot.ik_chain = IkChain(robot, tip=[0, 0, -0.02409])
 
 
 def Leachy(*args, **kwargs):
