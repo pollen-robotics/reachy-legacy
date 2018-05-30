@@ -19,7 +19,7 @@ from .ik import IkChain
 
 tips = {
     'none': [0, 0, -0.02409],
-    'hand' [0.04, 0, -0.23],
+    'hand': [0.04, 0, -0.23],
 }
 
 
