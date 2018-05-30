@@ -17,6 +17,12 @@ from .primitives import (Record, Play,
 from .ik import IkChain
 
 
+tips = {
+    'none': [0, 0, -0.02409],
+    'hand' [0.04, 0, -0.23],
+}
+
+
 def setup(robot):
     robot._primitive_manager._filter = partial(sum, axis=0)
 
@@ -98,5 +104,5 @@ def Leachy(*args, **kwargs):
         setup(robot)
 
     robot.urdf_file = robot.urdf_file.replace('reachy.urdf', 'leachy.urdf')
-    robot.ik_chain = IkChain(robot, tip=[0, 0, -0.02409])
+    robot.ik_chain = IkChain(robot, tip=tips['hand'])
     return robot
