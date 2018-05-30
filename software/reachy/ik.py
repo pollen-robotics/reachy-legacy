@@ -1,4 +1,4 @@
-from numpy import deg2rad
+from numpy import deg2rad, rad2deg
 
 from pypot.creatures import ik
 
@@ -19,6 +19,9 @@ class IkChain(object):
         """ Convert to IKPY internal representation. """
         return [0] + [deg2rad(j) for j in joints] + [0]
 
+    def convert_from_ik_angles(self, joints):
+        return [rad2deg(j) for j in joints][1:-1]
+
     def forward_kinematics(self, joints):
         return self._chain.forward_kinematics(self.convert_to_ik_angles(joints))
 
@@ -26,5 +29,10 @@ class IkChain(object):
         opt = {}
         if not accurate:
             opt['max_iter'] = 3
-        target = self.convert_to_ik_angles(target)
-        return self._chain.inverse_kinematics(target, initial_position, **opt)[1:-1]
+
+        if initial_position is not None:
+            initial_position = self.convert_to_ik_angles(initial_position)
+        joints = self._chain.inverse_kinematics(target, initial_position, **opt)
+        joints = self.convert_from_ik_angles(joints)
+
+        return joints
