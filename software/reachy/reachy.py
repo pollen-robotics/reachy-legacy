@@ -63,6 +63,18 @@ def setup(robot):
 
 
 class Reachy(AbstractPoppyCreature):
+    def __new__(cls, *args, **kwargs):
+        robot = AbstractPoppyCreature.__new__(cls, *args, **kwargs)
+
+        if 'brunel_hand' in kwargs:
+            from brunel_hand import BrunelHand
+
+            port = kwargs.pop('brunel_hand')
+            hand = BrunelHand(port)
+            robot.hand = hand
+
+        return robot
+
     @classmethod
     def setup(cls, robot):
         setup(robot)

@@ -21,6 +21,10 @@ setup(name='reachy',
 
       install_requires=['pypot>=3.1.0'],
 
+      extras_require={
+           'brunel_hand': ['brunel_hand'],
+      },
+
       include_package_data=True,
       exclude_package_data={'': ['README', '.gitignore']},
 
