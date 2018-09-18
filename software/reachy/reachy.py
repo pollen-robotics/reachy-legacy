@@ -83,10 +83,12 @@ class Reachy(AbstractPoppyCreature):
 
 
 def Leachy(*args, **kwargs):
-    if 'config' not in kwargs and 'simulator' not in kwargs:
-        config = os.path.join(os.path.dirname(__file__),
-                              'configuration', 'leachy.json')
-        kwargs['config'] = config
+    if 'simulator' not in kwargs:
+        if 'config' not in kwargs:
+            config = os.path.join(os.path.dirname(__file__),
+                                  'configuration', 'leachy.json')
+            kwargs['config'] = config
+
         robot = Reachy(*args, **kwargs)
 
     if 'simulator' in kwargs:
@@ -115,6 +117,7 @@ def Leachy(*args, **kwargs):
         robot.urdf_file = urdf_file
         setup(robot)
 
-    robot.urdf_file = robot.urdf_file.replace('reachy.urdf', 'leachy.urdf')
-    robot.ik_chain = IkChain(robot, tip=tips['hand'])
+    if 'config' not in kwargs:
+        robot.urdf_file = robot.urdf_file.replace('reachy.urdf', 'leachy.urdf')
+        robot.ik_chain = IkChain(robot, tip=tips['hand'])
     return robot
