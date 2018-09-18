@@ -63,6 +63,29 @@ def setup(robot):
 
 
 class Reachy(AbstractPoppyCreature):
+    def __new__(cls, *args, **kwargs):
+        if 'brunel_hand' in kwargs:
+            # This means we are a Leachy
+            if 'config' in kwargs:
+                config = kwargs['config']
+                config = config.replace('.json', '_hand.json')
+            else:
+                config = os.path.join(os.path.dirname(__file__),
+                                      'configuration',
+                                      'reachy_hand.json')
+            kwargs['config'] = config
+
+        robot = AbstractPoppyCreature.__new__(cls, *args, **kwargs)
+
+        if 'brunel_hand' in kwargs:
+            from brunel_hand import BrunelHand
+
+            port = kwargs.pop('brunel_hand')
+            hand = BrunelHand(port)
+            robot.hand = hand
+
+        return robot
+
     @classmethod
     def setup(cls, robot):
         setup(robot)
@@ -71,10 +94,12 @@ class Reachy(AbstractPoppyCreature):
 
 
 def Leachy(*args, **kwargs):
-    if 'config' not in kwargs and 'simulator' not in kwargs:
-        config = os.path.join(os.path.dirname(__file__),
-                              'configuration', 'leachy.json')
-        kwargs['config'] = config
+    if 'simulator' not in kwargs:
+        if 'config' not in kwargs:
+            config = os.path.join(os.path.dirname(__file__),
+                                  'configuration', 'leachy.json')
+            kwargs['config'] = config
+
         robot = Reachy(*args, **kwargs)
 
     if 'simulator' in kwargs:
@@ -103,6 +128,7 @@ def Leachy(*args, **kwargs):
         robot.urdf_file = urdf_file
         setup(robot)
 
-    robot.urdf_file = robot.urdf_file.replace('reachy.urdf', 'leachy.urdf')
-    robot.ik_chain = IkChain(robot, tip=tips['hand'])
+    if 'config' not in kwargs:
+        robot.urdf_file = robot.urdf_file.replace('reachy.urdf', 'leachy.urdf')
+        robot.ik_chain = IkChain(robot, tip=tips['hand'])
     return robot

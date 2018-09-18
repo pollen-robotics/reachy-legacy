@@ -1,0 +1,87 @@
+{
+  "controllers": {
+      "upper_arm_controller": {
+          "sync_read": true,
+          "attached_motors": [
+              "arm"
+          ],
+          "port": "/dev/tty.usbmodem14341",
+          "syncloop": "BaseDxlController"
+
+      }
+  },
+  "motorgroups": {
+      "arm": [
+          "l_shoulder_pitch",
+          "l_shoulder_roll",
+          "l_arm_yaw",
+          "l_elbow_pitch",
+          "l_forearm_yaw",
+          "l_wrist_pitch"
+      ]
+  },
+  "motors": {
+      "l_shoulder_pitch": {
+        "offset": 90.0,
+        "type": "MX-106",
+        "id": 20,
+        "angle_limit": [
+          -90.0,
+          180.0
+        ],
+        "orientation": "direct"
+      },
+      "l_shoulder_roll": {
+        "offset": -90.0,
+        "type": "MX-64",
+        "id": 21,
+        "angle_limit": [
+          -90.0,
+          100.0
+        ],
+        "orientation": "indirect"
+      },
+      "l_arm_yaw": {
+        "offset": 0.0,
+        "type": "MX-64",
+        "id": 22,
+        "angle_limit": [
+          -90.0,
+          90.0
+        ],
+        "orientation": "indirect"
+      },
+      "l_elbow_pitch": {
+        "offset": 0.0,
+        "type": "MX-64",
+        "id": 23,
+        "angle_limit": [
+          -125.0,
+          0.0
+        ],
+        "orientation": "direct"
+      },
+      "l_forearm_yaw": {
+        "offset": 0.0,
+        "type": "AX-12",
+        "id": 24,
+        "angle_limit": [
+          -150.0,
+          150.0
+        ],
+        "orientation": "indirect"
+      },
+      "l_wrist_pitch": {
+        "offset": 0.0,
+        "type": "AX-12",
+        "id": 25,
+        "angle_limit": [
+          -50.0,
+          50.0
+        ],
+        "orientation": "direct"
+      }
+  },
+  "sensors": {
+  }
+}
