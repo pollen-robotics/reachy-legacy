@@ -64,6 +64,17 @@ def setup(robot):
 
 class Reachy(AbstractPoppyCreature):
     def __new__(cls, *args, **kwargs):
+        if 'brunel_hand' in kwargs:
+            # This means we are a Leachy
+            if 'config' in kwargs:
+                config = kwargs['config']
+                config = config.replace('.json', '_hand.json')
+            else:
+                config = os.path.join(os.path.dirname(__file__),
+                                      'configuration',
+                                      'reachy_hand.json')
+            kwargs['config'] = config
+
         robot = AbstractPoppyCreature.__new__(cls, *args, **kwargs)
 
         if 'brunel_hand' in kwargs:
