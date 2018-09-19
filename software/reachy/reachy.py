@@ -84,6 +84,7 @@ class Reachy(AbstractPoppyCreature):
             port = kwargs.pop('brunel_hand')
             hand = BrunelHand(port)
             robot.hand = hand
+            robot.hand.open()
 
         return robot
 
