@@ -20,6 +20,7 @@ from .ik import IkChain
 tips = {
     'none': [0, 0, -0.02409],
     'hand': [0.04, 0, -0.23],
+    'brunel_hand': [0.0, 0.0, -0.1],
 }
 
 
@@ -128,7 +129,11 @@ def Leachy(*args, **kwargs):
         robot.urdf_file = urdf_file
         setup(robot)
 
-    if 'config' not in kwargs:
-        robot.urdf_file = robot.urdf_file.replace('reachy.urdf', 'leachy.urdf')
+    robot.urdf_file = robot.urdf_file.replace('reachy.urdf', 'leachy.urdf')
+
+    if 'brunel_hand' in kwargs:
+        robot.urdf_file = robot.urdf_file.replace('leachy.urdf', 'leachy_hand.urdf')
+        robot.ik_chain = IkChain(robot, tip=tips['brunel_hand'])
+    else:
         robot.ik_chain = IkChain(robot, tip=tips['hand'])
     return robot

@@ -6,14 +6,15 @@ from pypot.creatures import ik
 class IkChain(object):
     def __init__(self, robot, tip):
         self._chain = ik.IKChain.from_poppy_creature(robot, robot.motors, [], tip=tip)
+        self._robot = robot
 
     @property
     def joints_position(self):
-        return self._chain.joints_position
+        return [m.present_position for m in self._robot.motors]
 
     @property
     def end_effector(self):
-        return self._chain.end_effector
+        return self.forward_kinematics(self.joints_position)[:3, 3]
 
     def convert_to_ik_angles(self, joints):
         """ Convert to IKPY internal representation. """
