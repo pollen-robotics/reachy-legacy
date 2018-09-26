@@ -1,11 +1,13 @@
 from numpy import deg2rad, rad2deg
 
-from pypot.creatures import ik
+from ikpy.chain import Chain
 
 
 class IkChain(object):
     def __init__(self, robot, tip):
-        self._chain = ik.IKChain.from_poppy_creature(robot, robot.motors, [], tip=tip)
+        self._chain = Chain.from_urdf_file(robot.urdf_file,
+                                           base_elements=['base'],
+                                           last_link_vector=tip)
         self._robot = robot
 
     @property
