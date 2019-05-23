@@ -15,7 +15,7 @@ We believe in open source development, we did it before with [Poppy](http://www.
 **The hardware is under [Creative Commons BY-SA licence](https://creativecommons.org/licenses/by-sa/4.0/).** You can find the source of the mechanics and the electronics here:
 
 - [Electronic design on CircuitMaker](https://workspace.circuitmaker.com/Projects/Details/Poppy-project/Hipi) :
-- [Mechanic design on onshape](https://cad.onshape.com/documents/66388ae9c63cef53d76acd77) :
+- [Mechanic design on onshape](https://cad.onshape.com/documents/66388ae9c63cef53d76acd77/w/68c2411483d5bc65c7f54234/e/581d46ba9b8ee98de9d636ee) :
 
 
 
