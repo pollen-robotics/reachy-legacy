@@ -23,6 +23,7 @@ setup(name='reachy',
 
       extras_require={
            'brunel_hand': ['brunel_hand'],
+           'luos': ['pyluos>=1.0.14'],
       },
 
       include_package_data=True,

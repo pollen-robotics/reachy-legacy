@@ -86,6 +86,17 @@ class Reachy(AbstractPoppyCreature):
             robot.hand = hand
             robot.hand.open()
 
+        if 'luos_extension' in kwargs:
+            from pyluos import Robot as LuosExtension
+
+            port = kwargs.pop('luos_extension')
+            ext = LuosExtension(port)
+
+            for m in ext.modules:
+                setattr(robot, m.alias, m)
+
+            robot.luos_extension = ext.modules
+
         return robot
 
     @classmethod
