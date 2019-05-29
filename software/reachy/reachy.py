@@ -11,8 +11,7 @@ from pypot.utils import pypot_time
 from pypot.creatures import AbstractPoppyCreature
 from pypot.vrep import from_vrep, VrepConnectionError
 
-from .primitives import (Record, Play,
-                         GotoRest, Idle, TiringDemo,
+from .primitives import (GotoRest, Idle, TiringDemo,
                          TurnCompliant)
 from .ik import IkChain
 
@@ -39,9 +38,6 @@ def setup(robot):
     robot.attach_primitive(TurnCompliant(robot), 'turn_compliant')
     robot.attach_primitive(GotoRest(robot), 'goto_rest')
     robot.attach_primitive(Idle(robot), 'idle')
-
-    robot.attach_primitive(Record(robot), 'record')
-    robot.attach_primitive(Play(robot), 'play')
 
     if robot.simulated:
         vrep_io = robot._controllers[0].io
@@ -85,6 +81,17 @@ class Reachy(AbstractPoppyCreature):
             hand = BrunelHand(port)
             robot.hand = hand
             robot.hand.open()
+
+        if 'luos_extension' in kwargs:
+            from pyluos import Robot as LuosExtension
+
+            port = kwargs.pop('luos_extension')
+            ext = LuosExtension(port)
+
+            for m in ext.modules:
+                setattr(robot, m.alias, m)
+
+            robot.luos_extension = ext.modules
 
         return robot
 
