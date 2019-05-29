@@ -1,63 +1,45 @@
-import glob
+import csv
+import numpy as np
 
-from pypot.primitive import Primitive, LoopPrimitive
-from pypot.primitive.move import MoveRecorder, MovePlayer, Move
+from pypot.primitive import LoopPrimitive
 
 
-class Record(LoopPrimitive):
-    properties = ['record_name']
-    path = '/tmp/{}.json'
-
-    def __init__(self, robot):
-        LoopPrimitive.__init__(self, robot, 1)
-        self.record_name = "demo_example"
+class MoveRecorder(LoopPrimitive):
+    def __init__(self, robot, motors):
+        LoopPrimitive.__init__(self, robot, 50)
+        self.motors = motors
 
     def setup(self):
-        for m in self.robot.motors:
-            m.compliant = True
-
-        self.recorder = MoveRecorder(self.robot, 50.0, self.robot.motors)
-        self.recorder.start()
+        self.data = []
 
     def update(self):
-        pass
+        pos = {m.name: m.present_position for m in self.motors}
+        self.data.append(pos)
 
-    def teardown(self):
-        self.recorder.stop()
-
-        for m in self.robot.motors:
-            m.compliant = False
-
-        with open(self.path.format(self.record_name), 'w') as f:
-            self.recorder.move.save(f)
+    def save(self, filename):
+        with open(filename, 'w') as f:
+            w = csv.DictWriter(f, self.data[0].keys())
+            w.writeheader()
+            w.writerows(self.data)
 
 
-class Play(Primitive):
-    properties = ['record_name', 'moves']
-    path = '/tmp/{}.json'
+class MovePlayer(LoopPrimitive):
+    def __init__(self, robot, move_file):
+        LoopPrimitive.__init__(self, robot, 50)
 
-    def __init__(self, robot):
-        Primitive.__init__(self, robot)
-        self.record_name = "demo_example"
+        with open(move_file) as f:
+            self.reader = csv.DictReader(f)
+            self.data = [row for row in self.reader]
+            self.i = 0
 
     def setup(self):
-        for m in self.robot.motors:
-            m.compliant = False
-            m.moving_speed = 0
+        self.i = 0
 
-    def run(self):
-        with open(self.path.format(self.record_name)) as f:
-            move = Move.load(f)
-
-        self.player = MovePlayer(self.robot, move, max_start_speed=0)
-        self.player.start()
-        self.player.wait_to_stop()
-
-    def teardown(self):
-        for m in self.robot.motors:
-            m.moving_speed = 0
-
-    @property
-    def moves(self):
-        return [s.replace('/tmp/', '').replace('.json', '')
-                for s in glob.glob('/tmp/*.json')]
+    def update(self):
+        try:
+            pos = self.data[self.i]
+            for m, p in pos.items():
+                getattr(self.robot, m).goal_position = float(p)
+            self.i += 1
+        except IndexError:
+            self.stop()
