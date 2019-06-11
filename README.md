@@ -6,7 +6,7 @@ If you want to own a Reachy, we can [build it for you](https://www.pollen-roboti
 
 We designed reachy for our clients, you can learn more about [Pollen Robotics services offers](http://pollen-robotics.com/).
 
-A Quickstart on how to use the project can be found [here](./doc)
+A Quickstart on how to use the project can be found [here](./doc/readme.md).
 
 # Open source
 
