@@ -23,6 +23,11 @@ You will find them in two main places:
 * the basic ones for a general presentation can be found [here](./notebook).
 * the specific ones with which are more applications oriented can be found [here](../applications)
 
+## Safety First
+
+Using a Reachy is not complex but at first it is easy to get confused. Most of the times it is not a big deal but some of the incorrect uses may easily damage it. There are a few pitfalls to avoid that, that can really help you at the beginning.
+
+We strongly recommend you to have a look at the [safety first notebook](Safety-first.ipynb) to make sure everything goes well with your robot. By following these simple rules, you will be able to have your robot running without problem.
 
 ## FAQ & Troubleshooting
 
