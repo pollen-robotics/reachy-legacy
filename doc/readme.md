@@ -1,6 +1,6 @@
 # Quickstart with Reachy
 
-![Reachy](./reachy.jpg)
+![Reachy](./img/reachy.jpg)
 
 ## Plug your Reachy
 
@@ -8,8 +8,8 @@ The first step to start your Reachy robot is to make sure the motors are powered
 
 See the pictures below for details.
 
-![Motor plug](./motor-plug.JPG)
-![Raspberry plug](./raspi-plug.JPG)
+![Motor plug](./img/motor-plug.JPG)
+![Raspberry plug](./img/raspi-plug.JPG)
 
 Depending on the end-effector you are using, you may also need to plug it. For instance, also plug the dedicated USB if you are using the gripper with the force sensor.
 
@@ -40,10 +40,10 @@ You will find them in two main places:
 
 Once the robot is started, you can connect to its web interface. You can directly access it on http://reachy.local/ (This uses the zeroconf protocol to resolve the hostname. It should directly works on Linux and OS-X but requires to install this on Windows: https://support.apple.com/kb/DL999 You can also directly use the robot's IP if you know it).
 
-![Reachy web interface ](./webinterface.png)
+![Reachy web interface ](./img/webinterface.png)
 
  This lets you to use the monitor interface, directly run Python code in your robot using Jupyter or use the visual language Snap.
 
  You can find an example of Python code to start making your robot move in Jupyter.
 
- ![Reachy jupyter example ](./jupyter.png)
+ ![Reachy jupyter example ](./img/jupyter.png)
