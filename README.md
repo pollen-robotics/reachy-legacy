@@ -7,8 +7,6 @@ Reachy is a unique robot arm with a high level of mobility (7-Dofs). Different t
 You can learn more about this project on [its webpage](https://www.pollen-robotics.com/en/our-products/reachy/) and on youtube:
 [![Video preview](./doc/img/reachy-youtube.jpg)](https://www.youtube.com/watch?v=wsCYkz-BHyA&list=PLoZg6JOJfhpCa1Sy3cM4FOFkcFUBElqBF&index=2)
 
-If you want to own a Reachy, we can [build it for you](https://www.pollen-robotics.com/en/our-products/reachy/).
-
 Reachy is designed and produced by Pollen Robotics, we offer product design and custom developpement, you can learn more on our [website](https://www.pollen-robotics.com/).
 
 ## Open source
@@ -22,7 +20,7 @@ The hardware is made using OnShape under [Creative Commons BY-SA licence](https:
 In this repository, there are multiple examples to explaine how to use reachy. 
 
 - A Quickstart on how to plug and start reachy can be found [here](./doc/readme.md).
-- You can learn more on the software architecture [here](.doc/reachy-software-presentation.ipynb)
+- You can learn more on the software architecture [here](./doc/reachy-software-presentation.ipynb)
 - Several examples are availables in the folder [application](./applications/)
 
 
