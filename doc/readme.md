@@ -4,7 +4,7 @@
 
 ## Plug your Reachy
 
-The first step to start your Reachy robot is to make sure the motors are powered using the dedicated 12V power supply. The usb dongle used to connect to the motors should be plugged to your computer or the Raspberry Pi.
+The first step to start your Reachy robot is to make sure the motors are powered using the **two dedicated 12V power supply**. The usb dongle used to connect to the motors should be plugged to your computer or the Raspberry Pi.
 
 See the pictures below for details.
 
