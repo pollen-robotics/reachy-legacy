@@ -11,6 +11,7 @@ from pypot.utils import pypot_time
 from pypot.creatures import AbstractPoppyCreature
 from pypot.vrep import from_vrep, VrepConnectionError
 
+from .fullreachy import full_reachy
 from .primitives import (GotoRest, Idle, TiringDemo,
                          TurnCompliant)
 from .ik import IkChain
@@ -145,3 +146,38 @@ def Leachy(*args, **kwargs):
     else:
         robot.ik_chain = IkChain(robot, tip=tips['hand'])
     return robot
+
+
+class FullReachy(object):
+    def __init__(self, left_brunel_hand, right_brunel_hand):
+        config_file = os.path.join(os.path.dirname(__file__),
+                                   'configuration', 'fullreachy.json')
+        self._robot, self.reachy, self.leachy, self.head = full_reachy(config_file)
+
+        self.reachy.urdf_file = os.path.join(os.path.dirname(__file__), 'reachy_hand.urdf')
+        self.reachy.ik_chain = IkChain(self.reachy, tip=tips['brunel_hand'])
+
+        self.leachy.urdf_file = os.path.join(os.path.dirname(__file__), 'leachy_hand.urdf')
+        self.leachy.ik_chain = IkChain(self.leachy, tip=tips['brunel_hand'])
+
+        from brunel_hand import BrunelHand
+
+        self.leachy.hand = BrunelHand(left_brunel_hand)
+        self.leachy.hand.open()
+
+        self.reachy.hand = BrunelHand(right_brunel_hand)
+        self.reachy.hand.open()
+
+    @property
+    def motors(self):
+        return self.reachy.motors + self.leachy.motors + self.head.motors
+
+    def goto_position(self,
+                      position_for_motors, duration,
+                      control=None, wait=False):
+        self._robot.goto_position(
+            position_for_motors=position_for_motors,
+            duration=duration,
+            control=control,
+            wait=wait
+        )

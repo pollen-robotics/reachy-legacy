@@ -1,0 +1,179 @@
+{
+    "controllers": {
+        "upper_arm_controller": {
+            "sync_read": true,
+            "attached_motors": [
+                "r_arm",
+                "l_arm",
+                "head"
+            ],
+            "port": "/dev/tty.usbmodem1434301",
+            "syncloop": "BaseDxlController"
+        }
+    },
+    "motorgroups": {
+        "r_arm": [
+            "r_shoulder_pitch",
+            "r_shoulder_roll",
+            "r_arm_yaw",
+            "r_elbow_pitch",
+            "r_forearm_yaw",
+            "r_wrist_pitch"
+        ],
+        "l_arm": [
+            "l_shoulder_pitch",
+            "l_shoulder_roll",
+            "l_arm_yaw",
+            "l_elbow_pitch",
+            "l_forearm_yaw",
+            "l_wrist_pitch"
+        ],
+        "head": [
+            "pan",
+            "tilt"
+        ]
+    },
+    "motors": {
+        "r_shoulder_pitch": {
+            "offset": 90.0,
+            "type": "MX-106",
+            "id": 10,
+            "angle_limit": [
+                -180.0,
+                90.0
+            ],
+            "orientation": "indirect"
+        },
+        "r_shoulder_roll": {
+            "offset": 90.0,
+            "type": "MX-64",
+            "id": 11,
+            "angle_limit": [
+                -100.0,
+                90.0
+            ],
+            "orientation": "indirect"
+        },
+        "r_arm_yaw": {
+            "offset": 0.0,
+            "type": "MX-64",
+            "id": 12,
+            "angle_limit": [
+                -90.0,
+                90.0
+            ],
+            "orientation": "indirect"
+        },
+        "r_elbow_pitch": {
+            "offset": 0.0,
+            "type": "MX-64",
+            "id": 13,
+            "angle_limit": [
+                0.0,
+                125.0
+            ],
+            "orientation": "indirect"
+        },
+        "r_forearm_yaw": {
+            "offset": 0.0,
+            "type": "AX-12",
+            "id": 14,
+            "angle_limit": [
+                -150.0,
+                150.0
+            ],
+            "orientation": "indirect"
+        },
+        "r_wrist_pitch": {
+            "offset": 0.0,
+            "type": "AX-12",
+            "id": 15,
+            "angle_limit": [
+                -50.0,
+                50.0
+            ],
+            "orientation": "indirect"
+        },
+        "l_shoulder_pitch": {
+            "offset": 90.0,
+            "type": "MX-106",
+            "id": 20,
+            "angle_limit": [
+                -90.0,
+                180.0
+            ],
+            "orientation": "direct"
+        },
+        "l_shoulder_roll": {
+            "offset": -90.0,
+            "type": "MX-64",
+            "id": 21,
+            "angle_limit": [
+                -90.0,
+                100.0
+            ],
+            "orientation": "indirect"
+        },
+        "l_arm_yaw": {
+            "offset": 0.0,
+            "type": "MX-64",
+            "id": 22,
+            "angle_limit": [
+                -90.0,
+                90.0
+            ],
+            "orientation": "indirect"
+        },
+        "l_elbow_pitch": {
+            "offset": 0.0,
+            "type": "MX-64",
+            "id": 23,
+            "angle_limit": [
+                -125.0,
+                0.0
+            ],
+            "orientation": "direct"
+        },
+        "l_forearm_yaw": {
+            "offset": 0.0,
+            "type": "AX-12",
+            "id": 24,
+            "angle_limit": [
+                -150.0,
+                150.0
+            ],
+            "orientation": "indirect"
+        },
+        "l_wrist_pitch": {
+            "offset": 0.0,
+            "type": "AX-12",
+            "id": 25,
+            "angle_limit": [
+                -50.0,
+                50.0
+            ],
+            "orientation": "direct"
+        },
+        "pan": {
+            "offset": 0.0,
+            "type": "MX-28",
+            "id": 8,
+            "angle_limit": [
+                -120.0,
+                120.0
+            ],
+            "orientation": "direct"
+        },
+        "tilt": {
+            "offset": 0.0,
+            "type": "MX-28",
+            "id": 5,
+            "angle_limit": [
+                -20.0,
+                90
+            ],
+            "orientation": "indirect"
+        }
+    },
+    "sensors": {}
+}
