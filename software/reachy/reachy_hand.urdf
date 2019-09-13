@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="Reachy">
+<robot name="Reachy w hand">
 
   <material name="blue">
     <color rgba="0 0 0.8 1"/>
@@ -135,28 +135,7 @@
     </collision>
   </link>
 
-  <link name="wrist_hand">
-    <visual>
-      <geometry>
-        <mesh filename="package://meshes/wrist-hand-visual.STL"></mesh>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="blue"/>
-    </visual>
-    <inertial>
-      <inertia ixx= "3.861e-6" ixy= "-2.805e-9" ixz= "-8.067e-8" iyy= "3.694e-6" iyz= "-7.689e-8" izz= "4.987e-6" ></inertia>
-      <mass value="0.009"></mass>
-    </inertial>
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"></origin>
-      <geometry>
-        <mesh filename="package://meshes/wrist-hand-respondable.STL"></mesh>
-      </geometry>
-    </collision>
-
-  </link>
-
-  <link name="hand_ball">
+  <link name="hand">
     <visual>
       <geometry>
         <mesh filename="package://meshes/ball-tip-visual.STL"></mesh>
@@ -166,7 +145,7 @@
     </visual>
     <inertial>
       <inertia ixx= "4.177e-5" ixy= "2.340e-9" ixz= "3.492e-8" iyy= "4.290e-5" iyz= "-2.318e-11" izz= "3.596e-5" ></inertia>
-      <mass value="0.090"></mass>
+      <mass value="0.350"></mass>
     </inertial>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"></origin>
@@ -175,16 +154,6 @@
       </geometry>
     </collision>
   </link>
-
-<!--   <link name="ball">
-    <visual>
-      <geometry>
-        <sphere radius="0.02"/>
-      </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <material name="red"/>
-    </visual>
-  </link> -->
 
   <joint name="r_shoulder_pitch" type="revolute">
     <parent link="base"/>
@@ -228,18 +197,10 @@
 
   <joint name="r_wrist_pitch" type="revolute">
     <parent link="wrist"/>
-    <child link="wrist_hand"/>
+    <child link="hand"/>
     <origin rpy="0 0 0" xyz="0 0 -0.22425"/>
     <axis xyz="0 1 0"/>
     <limit lower="-1.22173" upper="1.22173"/>
-  </joint>
-
-  <joint name="r_wrist_roll" type="revolute">
-    <parent link="wrist_hand"/>
-    <child link="hand_ball"/>
-    <origin rpy="0 0 0" xyz="0 0 -0.03243"/>
-    <axis xyz="1 0 0"/>
-    <limit lower="-1.0472" upper="1.0472"/>
   </joint>
 
 </robot>
