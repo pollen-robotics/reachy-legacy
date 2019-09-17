@@ -9,7 +9,10 @@ from collections import deque
 
 from pypot.utils import pypot_time
 from pypot.creatures import AbstractPoppyCreature
-from pypot.vrep import from_vrep, VrepConnectionError
+try:
+    from pypot.vrep import from_vrep, VrepConnectionError
+except OSError:
+    pass
 
 from .fullreachy import full_reachy
 from .primitives import (GotoRest, Idle, TiringDemo,
