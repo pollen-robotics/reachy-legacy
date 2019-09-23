@@ -1,0 +1,439 @@
+<?xml version="1.0"?>
+<robot name="Leachy w hand">
+
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+  <material name="red">
+    <color rgba="0.8 0 0 1"/>
+  </material>
+
+<link name="base">
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/trunk-visual.STL"></mesh>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "1.043e-4" ixy= "6.147e-6" ixz= "-1.971e-6" iyy= "1.364e-4" iyz= "1.466e-5" izz= "1.403e-4" ></inertia>
+      <mass value="0.221"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/trunk-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="l_shoulder">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/shoulder-left-visual.STL"></mesh>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "1.299e-5" ixy= "5.557e-10" ixz= "-2.973e-10" iyy= "2.323e-5" iyz= "-8.199e-8" izz= "2.227e-5" ></inertia>
+      <mass value="0.036"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/shoulder-left-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <link name="l_shoulder_to_arm">
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/shoulder-x-visual.STL"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "6.811e-5" ixy= "-2.299e-10" ixz= "-4.502e-7" iyy= "7.593e-5" iyz= "-1.674e-9" izz= "4.248e-5" ></inertia>
+      <mass value="0.155"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/shoulder-x-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="l_upper_arm">
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/upper-arm-visual.STL"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "4.171e-3" ixy= "1.333e-7" ixz= "-2.900e-4" iyy= "4.276e-3" iyz= "1.465e-6" izz= "3.177e-4" ></inertia>
+      <mass value="0.430"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/upper-arm-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="l_forearm">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/forearm-visual.STL"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "1.724e-4" ixy= "-1.733e-8" ixz= "1.854e-5" iyy= "1.815e-4" iyz= "-4.191e-8" izz= "9.299e-5" ></inertia>
+      <mass value="0.129"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/forearm-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="l_wrist">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/wrist-visual.STL"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "2.215e-4" ixy= "-2.163e-8" ixz= "-4.702e-6" iyy= "2.306e-4" iyz= "-6.577e-7" izz= "5.075e-5" ></inertia>
+      <mass value="0.115"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/wrist-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="l_open_bionics_hand">
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/open_bionics_hand_left-visual.STL"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "3.861e-6" ixy= "-2.805e-9" ixz= "-8.067e-8" iyy= "3.694e-6" iyz= "-7.689e-8" izz= "4.987e-6" ></inertia>
+      <mass value="0.009"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/open_bionics_hand_left-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+
+  </link>
+
+
+  <joint name="l_shoulder_pitch" type="revolute">
+    <parent link="base"/>
+    <child link="l_shoulder"/>
+    <origin rpy="0 0 0" xyz="0 0.14 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5708" upper="3.14159"/>
+  </joint>
+
+  <joint name="l_shoulder_roll" type="revolute">
+    <parent link="l_shoulder"/>
+    <child link="l_shoulder_to_arm"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-0.174533" upper="3.14159"/>
+  </joint>
+
+  <joint name="l_arm_yaw" type="revolute">
+    <parent link="l_shoulder_to_arm"/>
+    <child link="l_upper_arm"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5708" upper="1.5708"/>
+  </joint>
+
+  <joint name="l_elbow_pitch" type="revolute">
+    <parent link="l_upper_arm"/>
+    <child link="l_forearm"/>
+    <origin rpy="0 0 0" xyz="0 0 -0.30745"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.18166" upper="0"/>
+  </joint>
+
+  <joint name="l_forearm_yaw" type="revolute">
+    <parent link="l_forearm"/>
+    <child link="l_wrist"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.61799" upper="2.61799"/>
+  </joint>
+
+  <joint name="l_wrist_pitch" type="revolute">
+    <parent link="l_wrist"/>
+    <child link="l_open_bionics_hand"/>
+    <origin rpy="0 0 0" xyz="0 0 -0.22415"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.22173" upper="1.22173"/>
+  </joint>
+
+   <link name="r_shoulder">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/shoulder-visual.STL"></mesh>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "1.299e-5" ixy= "5.557e-10" ixz= "-2.973e-10" iyy= "2.323e-5" iyz= "-8.199e-8" izz= "2.227e-5" ></inertia>
+      <mass value="0.036"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/shoulder-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="r_shoulder_to_arm">
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/shoulder-x-visual.STL"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "6.811e-5" ixy= "-2.299e-10" ixz= "-4.502e-7" iyy= "7.593e-5" iyz= "-1.674e-9" izz= "4.248e-5" ></inertia>
+      <mass value="0.155"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/shoulder-x-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="r_upper_arm">
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/upper-arm-visual.STL"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "4.171e-3" ixy= "1.333e-7" ixz= "-2.900e-4" iyy= "4.276e-3" iyz= "1.465e-6" izz= "3.177e-4" ></inertia>
+      <mass value="0.430"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/upper-arm-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="r_forearm">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/forearm-visual.STL"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "1.724e-4" ixy= "-1.733e-8" ixz= "1.854e-5" iyy= "1.815e-4" iyz= "-4.191e-8" izz= "9.299e-5" ></inertia>
+      <mass value="0.129"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/forearm-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="r_wrist">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/wrist-visual.STL"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "2.215e-4" ixy= "-2.163e-8" ixz= "-4.702e-6" iyy= "2.306e-4" iyz= "-6.577e-7" izz= "5.075e-5" ></inertia>
+      <mass value="0.115"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/wrist-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="r_open_bionics_hand">
+    <visual>
+      <geometry>
+        <mesh filename="package://meshes/open_bionics_hand_right-visual.STL"></mesh>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "3.861e-6" ixy= "-2.805e-9" ixz= "-8.067e-8" iyy= "3.694e-6" iyz= "-7.689e-8" izz= "4.987e-6" ></inertia>
+      <mass value="0.009"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/open_bionics_hand_right-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+
+  </link>
+
+
+
+  <joint name="r_shoulder_pitch" type="revolute">
+    <parent link="base"/>
+    <child link="r_shoulder"/>
+    <origin rpy="0 0 0" xyz="0 -0.14 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.5708" upper="3.14159"/>
+  </joint>
+
+  <joint name="r_shoulder_roll" type="revolute">
+    <parent link="r_shoulder"/>
+    <child link="r_shoulder_to_arm"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-3.14159" upper="0.174533"/>
+  </joint>
+
+  <joint name="r_arm_yaw" type="revolute">
+    <parent link="r_shoulder_to_arm"/>
+    <child link="r_upper_arm"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5708" upper="1.5708"/>
+  </joint>
+
+  <joint name="r_elbow_pitch" type="revolute">
+    <parent link="r_upper_arm"/>
+    <child link="r_forearm"/>
+    <origin rpy="0 0 0" xyz="0 0 -0.30745"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-2.18166" upper="0"/>
+  </joint>
+
+  <joint name="r_forearm_yaw" type="revolute">
+    <parent link="r_forearm"/>
+    <child link="r_wrist"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.61799" upper="2.61799"/>
+  </joint>
+
+  <joint name="r_wrist_pitch" type="revolute">
+    <parent link="r_wrist"/>
+    <child link="r_open_bionics_hand"/>
+    <origin rpy="0 0 0" xyz="0 0 -0.22425"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-1.22173" upper="1.22173"/>
+  </joint>
+
+
+
+  <link name="head_U">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/head_u-visual.STL"></mesh>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "1.299e-5" ixy= "5.557e-10" ixz= "-2.973e-10" iyy= "2.323e-5" iyz= "-8.199e-8" izz= "2.227e-5" ></inertia>
+      <mass value="0.036"></mass>
+    </inertial>
+    <!-- <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/shoulder-respondable.STL"></mesh>
+      </geometry>
+    </collision> -->
+  </link>
+
+  <link name="head_eyes">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/head-eyes-visual.STL"></mesh>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <inertia ixx= "1.299e-5" ixy= "5.557e-10" ixz= "-2.973e-10" iyy= "2.323e-5" iyz= "-8.199e-8" izz= "2.227e-5" ></inertia>
+      <mass value="0.036"></mass>
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"></origin>
+      <geometry>
+        <mesh filename="package://meshes/head-eyes-respondable.STL"></mesh>
+      </geometry>
+    </collision>
+  </link>
+
+    <joint name="head_yaw" type="revolute">
+    <parent link="base"/>
+    <child link="head_U"/>
+    <origin rpy="0 0 0" xyz="0 0 0.13775"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-1.5708" upper="3.14159"/>
+  </joint>
+
+    <joint name="head_pitch" type="revolute">
+    <parent link="head_U"/>
+    <child link="head_eyes"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.14159" upper="0.174533"/>
+  </joint>
+
+</robot>
