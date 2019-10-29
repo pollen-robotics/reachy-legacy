@@ -77,6 +77,9 @@ class Reachy(AbstractPoppyCreature):
             kwargs['config'] = config
 
         robot = AbstractPoppyCreature.__new__(cls, *args, **kwargs)
+        robot._controllers[0].io.set_highest_temperature_limit(
+            {m.id: 55 for m in robot.motors}
+        )
 
         if 'brunel_hand' in kwargs:
             from brunel_hand import BrunelHand
@@ -156,6 +159,9 @@ class FullReachy(object):
         config_file = os.path.join(os.path.dirname(__file__),
                                    'configuration', 'fullreachy.json')
         self._robot, self.reachy, self.leachy, self.head = full_reachy(config_file)
+        self._robot._controllers[0].io.set_highest_temperature_limit(
+            {m.id: 55 for m in self._robot.motors}
+        )
 
         self.reachy.urdf_file = os.path.join(os.path.dirname(__file__), 'reachy_hand.urdf')
         self.reachy.ik_chain = IkChain(self.reachy, tip=tips['brunel_hand'])
