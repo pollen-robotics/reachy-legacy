@@ -29,14 +29,11 @@ Those notebooks can be viewed directly on GitHub or can also be run locally to d
 
 Reachy's control library is written in Python (>=2.7 or >= 3.4) and works on Win/Mac/Linux. It allows for fast and simple control of your robotic arm. And also provides you example with more advanced features such as inverse kinematics, simulation, tracking, etc. It relies on the [pypot library](https://github.com/poppy-project/pypot) for the dynamixel motor communication.
 
-On Raspberry-Pi you first need to install lapack/blas:
-
-```
-sudo apt install liblapack-dev gfortran libblas-dev
-```
+On Raspberry-Pi, you can burn the ready to use image file (reachy comes installed for both Python2 and Python3): [download iso file](https://github.com/pollen-robotics/reachy/releases)
 
 It can be installed from the source via pip.
 
 ```
 git clone https://github.com/pollen-robotics/reachy.git
 pip install -e ./reachy/software
+```
