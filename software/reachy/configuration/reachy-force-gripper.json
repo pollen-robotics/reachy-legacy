@@ -5,7 +5,7 @@
           "attached_motors": [
               "arm"
           ],
-          "port": "auto",
+          "port": "/dev/ttyACM0",
           "syncloop": "BaseDxlController"
 
       }

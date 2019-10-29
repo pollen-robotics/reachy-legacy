@@ -6,7 +6,7 @@
               "arm",
               "head"
           ],
-          "port": "auto",
+          "port": "/dev/ttyACM0",
           "syncloop": "BaseDxlController"
 
       }

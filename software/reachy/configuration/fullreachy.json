@@ -7,7 +7,7 @@
                 "l_arm",
                 "head"
             ],
-            "port": "/dev/tty.usbmodem1434301",
+            "port": "/dev/ttyACM0",
             "syncloop": "BaseDxlController"
         }
     },

@@ -12,7 +12,7 @@ class IkChain(object):
 
     @property
     def joints_position(self):
-        return [m.present_position for m in self._robot.motors]
+        return [m.present_position for m in self._robot.motors[:7]]
 
     @property
     def end_effector(self):
